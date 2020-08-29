@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const MARK_DONE=gql`
+export const MARK_DONE = gql`
 mutation MarkDone($id: Int!) {
     update_todo(
         where: {id: {_eq: $id}},
@@ -20,7 +20,7 @@ mutation MarkDone($id: Int!) {
 
 export const TODO = gql` 
   query { 
-  todo(order_by: {id: asc}){
+  todo(order_by: {id: desc}){
     id
     todo
     done
@@ -37,8 +37,8 @@ mutation AddTodo($todo: String!) {
 }
 `;
 
-export const DEL_TODO=gql`
-mutation AddTodo($id: Int!) {
+export const DEL_TODO = gql`
+mutation DeleteTodo($id: Int!) {
     delete_todo(where:{id:{_eq:$id}}){
         affected_rows
       }

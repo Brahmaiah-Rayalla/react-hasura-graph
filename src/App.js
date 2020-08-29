@@ -6,13 +6,10 @@ import Todos from "./Todos"
 import AddTodo from "./components/AddTodo"
 import Button from 'react-bootstrap/Button'
 
-const ACCESS_TOKEN = localStorage.getItem('id_token');
 
 const client = new ApolloClient({
-  uri: "https://react-hasura-graph.herokuapp.com/v1/graphql",
-  headers: {
-    'Authorization': `Bearer ${ACCESS_TOKEN}`,
-  }
+  uri: "https://react-hasura-graph.herokuapp.com/v1/graphql"
+
 });
 
 
@@ -20,22 +17,29 @@ class App extends Component {
 
 
   render() {
-    const { isAuthenticated } = this.props.auth;
+
 
     return (
-      isAuthenticated() && (
+      (
         <ApolloProvider client={client}>
-          <div className="todo-app container">
-            <h1 className=" title center blue-text">Todo's</h1>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
 
-            <Button onClick={() => window.open('logout', "_self")} variant="success" className="float-right">Logout</Button>
-            <br /><br />
-            <Todos deleteTodo={this.deleteTodo} />
-            <AddTodo addTodo={this.addTodo} />
-            <div> ***completed task are green and incomplete are yellow***</div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading"><h2><i class="fa fa-list-ul" aria-hidden="true"></i> TODO APP</h2></div>
+                  <div class="panel-body"><AddTodo addTodo={this.addTodo} /></div>
+                  <div class="panel-body"><Todos deleteTodo={this.deleteTodo} /></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-        </ApolloProvider>
+
+
+
+
+        </ApolloProvider >
       )
     );
   }

@@ -1,6 +1,8 @@
 .App {
   text-align: center;
+
 }
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -31,7 +33,8 @@
     transform: rotate(360deg);
   }
 }
-#footer {
-  height: 50px;
-  margin-top: 36% ;
+
+
+.container .row {
+  margin-top: 60px;
 }
