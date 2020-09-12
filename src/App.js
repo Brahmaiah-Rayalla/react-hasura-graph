@@ -8,8 +8,10 @@ import Button from 'react-bootstrap/Button'
 
 
 const client = new ApolloClient({
-  uri: "https://react-hasura-graph.herokuapp.com/v1/graphql"
-
+  uri: "https://react-hasura-graph.herokuapp.com/v1/graphql",
+  headers: {
+    'x-hasura-access-key': '@rock517',
+  }
 });
 
 
